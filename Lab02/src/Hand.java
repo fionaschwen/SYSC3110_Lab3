@@ -46,7 +46,23 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand has two pairs
      */
     public boolean isTwoPair() {
+        int[] ranks = new int[13];  //create an array to hold the count of each rank
+        for(Card c : cards)
+        {
+            ranks[c.getRank().ordinal()] ++;    //for each rank in the hand, increase this count
+        }
+        int pairs = 0;
+        for(int i = 0; i<13; i++){
+            if(ranks[i] == 2)
+            {
+                pairs++;
+            }
+        }
+        if(pairs == 2)
+            return true;
         return false;
+
+
     }   
     
     /**
